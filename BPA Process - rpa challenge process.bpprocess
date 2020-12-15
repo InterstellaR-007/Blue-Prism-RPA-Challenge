@@ -1,0 +1,55 @@
+﻿<process name="rpa challenge process" version="1.0" bpversion="6.9.0.26970" narrative="" byrefcollection="true" preferredid="81ee1715-4704-4933-8e4c-d020fae8b40b">
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="ce40db5d-285b-4af5-92d3-1559e6f57188" name="Start" type="Start">
+    <display x="15" y="-135" />
+    <onsuccess>1cf831c0-6caf-4278-bde6-d0e5e8222b31</onsuccess>
+  </stage>
+  <stage stageid="50db0a90-4270-4c99-8492-863263598d64" name="End" type="End">
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="fe43123e-4b27-4cd7-a2ab-ecf7defbf012" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="1cf831c0-6caf-4278-bde6-d0e5e8222b31" name="rpa_challenge::launch" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-45" />
+    <onsuccess>2322639f-c533-4f5a-bc47-0178723a8c57</onsuccess>
+    <resource object="rpa_challenge" action="launch" />
+  </stage>
+  <stage stageid="2322639f-c533-4f5a-bc47-0178723a8c57" name="rpa_challenge::Enter Details" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="15" />
+    <onsuccess>50db0a90-4270-4c99-8492-863263598d64</onsuccess>
+    <resource object="rpa_challenge" action="Enter Details" />
+  </stage>
+  <stage stageid="a7183a79-d02d-4c64-8adf-c8b77f97f573" name="Recover1" type="Recover">
+    <loginhibit />
+    <display x="150" y="-45" />
+    <onsuccess>d5cbff06-0d83-4627-9094-25c1141b7fb8</onsuccess>
+  </stage>
+  <stage stageid="f680904f-6169-4302-9b9c-5db97374446d" name="Resume1" type="Resume">
+    <loginhibit />
+    <display x="150" y="90" />
+    <onsuccess>50db0a90-4270-4c99-8492-863263598d64</onsuccess>
+  </stage>
+  <stage stageid="d5cbff06-0d83-4627-9094-25c1141b7fb8" name="get Exception detail" type="Calculation">
+    <loginhibit onsuccess="true" />
+    <display x="150" y="30" />
+    <onsuccess>f680904f-6169-4302-9b9c-5db97374446d</onsuccess>
+    <calculation expression="ExceptionDetail()" stage="exceptiondetail" />
+  </stage>
+  <stage stageid="35797409-2874-4a14-93be-ea98c0ebb592" name="exceptiondetail" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-150" y="90" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+</process>
